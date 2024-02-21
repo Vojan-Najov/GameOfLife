@@ -16,16 +16,24 @@ type World struct {
 	Cells  [][]bool
 }
 
-func NewWorld(height, width int) *World {
+func NewWorld(height, width int) (*World, error) {
+  if height < 1 {
+    return nil, errors.New("non-positive height")
+  }
+  if width < 1 {
+    return nil, errors.New("non-positive width")
+  }
+
   cells := make([][]bool, height)
   for i := range cells {
     cells[i] = make([]bool, width)
   }
+
   return &World{
     Height: height,
     Width: width,
     Cells: cells,
-  }
+  }, nil
 }
 
 func (w *World) next(x, y int) bool {

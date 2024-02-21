@@ -1,5 +1,5 @@
 all:
-	go build cmd/GameOfLife.go
+	go build -o GameOfLife cmd/life/main.go
 
 clean:
 	rm GameOfLife
