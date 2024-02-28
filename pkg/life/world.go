@@ -29,8 +29,8 @@ func NewWorld(height, width int) *World {
 }
 
 func (w *World) next(x, y int) bool {
-  // n := w.neighbors(x, y)
-  n := w.neighborsOnThor(x, y)
+  n := w.neighbors(x, y)
+  //n := w.neighborsOnThor(x, y)
   alive := w.Cells[y][x]
 
   if n < 4 && n > 1 && alive {

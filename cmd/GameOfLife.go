@@ -16,8 +16,8 @@ func main() {
 
 func mainWithExitCode(ctx context.Context) int {
 	cfg := application.Config{
-		Width:  10,
-		Height: 10,
+		Width:  50,
+		Height: 50,
 	}
 	app := application.New(cfg)
 	// Запускаем приложение

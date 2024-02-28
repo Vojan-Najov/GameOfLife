@@ -29,15 +29,15 @@ func (a *Application) Run(ctx context.Context) error {
 	// Объект для хранения очередного состояния сетки
 	nextWorld := life.NewWorld(a.Cfg.Height, a.Cfg.Width)
 
-	// Заполняем сетку на 30%
-	currentWorld.RandInit(30)
+	// Заполняем сетку на 40%
+	currentWorld.RandInit(40)
 	fmt.Print("\033[H\033[2J")
 	for {
 		// Здесь мы можем записывать текущее состояние  — например, в очередь
     // сообщений. Для нашего примера просто выводим на экран
 		fmt.Println(currentWorld)
 		life.NextState(currentWorld, nextWorld)
-		currentWorld = nextWorld
+		currentWorld, nextWorld = nextWorld, currentWorld
 
 		// Проверяем контекст
 		select {
